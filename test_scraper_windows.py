@@ -4,10 +4,13 @@ import selenium
 from selenium import webdriver
 import os
 import time
+from pymongo import MongoClient
 from selenium.webdriver.common.by import By
 '''
 Install selenium and chromedriver (make sure chromedriver matches your version of chrome)
 '''
+# pip install --user pymongo
+# pip install --user "pymongo[srv]"
 
 # download chromedriver and place it somewhere
 # chromeDriverPath = "C:\\Users\\Emma\\Desktop\\HW\\Senior Year\\Big Data\\chromedriver"
@@ -104,6 +107,14 @@ for i in range(1,num_images + 1):
         # if we have not loaded the high res images in x seconds, break
         if time.time() - timeStarted > 3:
             break
+
+    #MongoDB with PyMongo to insert Database directly
+    my_client = MongoClient("mongodb+srv://team_andrew:Green91%40%40@cluster1.jsqyd.mongodb.net/test")
+    db = my_client.ImageSearch #connect to "ImageSearch" Database
+    collection = db.get_collection("ImageData") #connect to "ImageData" Collection
+    image_element = {"imageLink": imageURL,"description": image_description,"websiteLink":image_website} #Create Element
+    data = [image_element]
+    result = collection.insert_many(data) #insert the saved data into the collection
 
     print("image description:", image_description)
     print("image URL", imageURL)
