@@ -39,7 +39,7 @@ except Exception as e:
 # If we want to search by term
 # search_URL = "https://www.google.com/search?q=cute+puppies&source=lnms&tbm=isch"
 # driver.get(search_URL)
-num_images = 20
+num_images = 5
 # scroll down until we have enough images
 while True:
     page_html = driver.page_source
