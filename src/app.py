@@ -1,11 +1,9 @@
 import os
-
 from base64 import b64encode
 from flask import Flask, flash, redirect, render_template, send_from_directory, url_for, request
-import urllib.request
 import templates.test_scraper as test_scraper
 from templates.test_scraper import * #to import all variables from test_scraper.py
-
+import templates.deleteDB as deleteDB
 
 app = Flask(__name__)
 
@@ -14,6 +12,8 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 #Open Default homepage: upload.html
 @app.route("/")
 def index():
+    #delete all data in database in homepage
+    deleteDB.deleteAll()
     return render_template("upload.html")
 
 #Connect hompage with complete.html, and create upload and submit features
@@ -40,6 +40,7 @@ def upload():
 @app.route('/upload/<filename>')
 def send_image(filename):
     return send_from_directory("images",filename)
+
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)

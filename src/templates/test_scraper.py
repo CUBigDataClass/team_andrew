@@ -94,6 +94,7 @@ def imageScrapping():
 
         #append each imageURL
         image_list.append(imageURL)
+
         # print("image description:", image_description)
         # print("image URL", imageURL)
         # print("image website:", image_website)
