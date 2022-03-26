@@ -1,10 +1,13 @@
 import os
-from flask import Flask, flash, redirect, render_template, url_for, request
+from flask import Flask, flash, redirect, render_template, send_from_directory, url_for, request
 import templates.test_scraper as test_scraper
+from templates.test_scraper import * #to import all variables from test_scraper.py
+
 
 app = Flask(__name__)
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 @app.route("/")
 def index():
     return render_template("upload.html")
@@ -22,9 +25,14 @@ def upload():
         filename = file.filename
         destination = "/".join([target, "temp.jpg"]) #change filename inside the target folder
         file.save(destination)
+
         #calling test_scraper.py for image scraping after the user clicks on Submit button.
         test_scraper.imageScrapping()
-    return render_template("complete.html")
 
+    return render_template("complete.html", image_name="temp.jpg")
+
+@app.route('/upload/<filename>')
+def send_image(filename):
+    return send_from_directory("images",filename)
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
