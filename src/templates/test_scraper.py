@@ -56,6 +56,7 @@ def imageScrapping():
     driver.execute_script("window.scrollTo(0,0);")
     print("found %s image containers"%(len(containers)))
 
+    #create list of imageurl to use in app.py and html
     image_list = []
 
     for i in range(1,num_images + 1):
@@ -90,8 +91,10 @@ def imageScrapping():
         image_element = {"imageLink": imageURL,"description": image_description,"websiteLink":image_website} #Create Element
         data = [image_element]
         result = collection.insert_many(data) #insert the saved data into the collection
+
+        #append each imageURL
         image_list.append(imageURL)
-        print("image description:", image_description)
-        print("image URL", imageURL)
-        print("image website:", image_website)
+        # print("image description:", image_description)
+        # print("image URL", imageURL)
+        # print("image website:", image_website)
     return image_list
