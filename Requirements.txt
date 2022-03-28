@@ -18,3 +18,14 @@ Flask:
 
 
 To Run Flask, run the following command in terminal: python3 -m flask run, then, click on the website address(on the terminal) to open up the flask web application.
+
+Spacy
+
+1. Install the following pip commands. 
+  pip install --user -U pip setuptools wheel
+  pip install --user -U spacy
+  pip install --user pyresparser
+  pip install --user spacytextblob
+2. Install the following python commands. 
+  python -m textblob.download_corpora
+  python -m spacy download en_core_web_sm
