@@ -1,0 +1,11 @@
+version: 4.6.1
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dockerfile
+    ports:
+      - '5000:5000'
+    volumes:
+      - .:/app
+  
