@@ -100,7 +100,7 @@ def imageScrapping():
         my_client = MongoClient("mongodb+srv://team_andrew:Green91%40%40@cluster1.jsqyd.mongodb.net/test")
         db = my_client.ImageSearch #connect to "ImageSearch" Database
         collection = db.get_collection("ImageData") #connect to "ImageData" Collection
-        image_element = {"imageLink": imageURL,"description": image_description,"websiteLink":image_website} #Create Element
+        image_element = {"imageLink": imageURL,"description": image_description,"websiteLink":image_website, "previewImageURL:":preview_image_url} #Create Element
         data = [image_element]
         result = collection.insert_many(data) #insert the saved data into the collection
 
