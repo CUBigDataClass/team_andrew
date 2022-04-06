@@ -3,39 +3,85 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
         <title>Image Similarity Application</title>
     </head>
-    <body>
-        <div class="container">
-        <p><h1 style="text-align: center;">Find a Similarity</h1></p>
-                <ul class="nav nav-pills center-pills" id="ex1">
-                    <li class="active">
-                        <a href="#1b" data-toggle="tab">
-                        Upload Image
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#2b" data-toggle="tab">
-                        Search Author
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content clearfix center-pills" id="content">
-                    <div class="tab-pane active" id="1b">
-                        <h2 id="tab1Header">Select a file to upload</h2>
-                        <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="file" accept="image/*" multiple>
-                        <input type="submit" value="Submit" id="submitBt"></form>
-                    </div>
-                    <div class="tab-pane" id="2b">
-                        Tab 2 content
-                    </div>
-                </div>
+    <body style="background-color:#23314D;">
+        <div class="header">
+            <a href="#upload" class="logo">NFTCHECK</a>
         </div>
+        <div class="top">
+            <h1>Discover & Check Your Sources</h1>
+        </div>
+        <div class="main">
+            <div class="content">
+                <h2 id="uploadHeader">Select a file to upload</h2>
+                <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 center">
+                            <div class="btn-container">
+                                <h1 class="imgupload"><i class="fa fa-file-image-o"></i></h1>
+                                <h1 class="imgupload ok"><i class="fa fa-check"></i></h1>
+                                <h1 class="imgupload stop"><i class="fa fa-times"></i></h1>
+                                <!--this field changes dinamically displaying the filename we are trying to upload-->
+                                <p id="namefile">Only jpg, jpeg, bmp, png!</p>
+                                <!--our custom btn which which stays under the actual one-->
+                                <button type="button" id="btnup" class="btn btn-primary btn-lg">Upload</button>
+                                <!--this is the actual file input, is set with opacity=0 beacause we wanna see our custom one-->
+                                <input type="file" value="" name="file" id="fileup">
+                            </div>
+                        </div>
+                    </div>
+                        <!--additional fields-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!--the defauld disabled btn and the actual one shown only if the three fields are valid-->
+                            <input type="submit" value="Submit!" class="btn btn-primary" id="submitbtn">
+                            <button type="button" class="btn btn-default" disabled="disabled" id="fakebtn">Submit! <i class="fa fa-minus-circle"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            $('#fileup').change(function(){
+        //here we take the file extension and set an array of valid extensions
+            var res=$('#fileup').val();
+            var arr = res.split("\\");
+            var filename=arr.slice(-1)[0];
+            filextension=filename.split(".");
+            filext="."+filextension.slice(-1)[0];
+            valid=[".jpg",".png",".jpeg",".bmp"];
+        //if file is not valid we show the error icon, the red alert, and hide the submit button
+            if (valid.indexOf(filext.toLowerCase())==-1){
+                $( ".imgupload" ).hide("slow");
+                $( ".imgupload.ok" ).hide("slow");
+                $( ".imgupload.stop" ).show("slow");
+                $('#namefile').css({"color":"red","font-weight":700});
+                $('#namefile').html("File "+filename+" is not  pic!");
+                $( "#submitbtn" ).hide();
+                $( "#fakebtn" ).show();
+            }else{
+                //if file is valid we show the green alert and show the valid submit
+                $( ".imgupload" ).hide("slow");
+                $( ".imgupload.stop" ).hide("slow");
+                $( ".imgupload.ok" ).show("slow");
+                $('#namefile').css({"color":"green","font-weight":700});
+                $('#namefile').html(filename);
+                $( "#submitbtn" ).show();
+                $( "#fakebtn" ).hide();
+            }
+        });
+        </script>
     </body>
 </html>

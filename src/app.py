@@ -1,6 +1,6 @@
 import os
 from base64 import b64encode
-from flask import Flask, flash, redirect, render_template, send_from_directory, url_for, request, jsonify
+from flask import Flask, flash, redirect, render_template, send_from_directory, url_for, request
 import templates.test_scraper as test_scraper
 from templates.test_scraper import * #to import all variables from test_scraper.py
 import templates.deleteDB as deleteDB

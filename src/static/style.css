@@ -1,57 +1,146 @@
+* {
+  box-sizing: border-box;
+}
 body {
-    padding : 10px ;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  }
+  .header {
+    overflow: hidden;
+    background-color: #8FFF93;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom-right-radius: 20px 15px;
+    border-bottom-left-radius: 20px 15px;
+  }
+  .header a {
+    display: block;
+    color: #212329;
+    text-align: center;
+    padding: 5px 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Allerta Stencil', sans-serif;
+    font-size: 30px;
+    text-shadow: 2px 2px 2px gray;
+  }
+  .header a:hover {
+    text-decoration: none;
+    color: #212329;
+    text-shadow: 2px 2px 2px gray;
+  }
+  .main {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    margin-top: 5%;
     text-align: center;
   }
-
-  .center-pills {
-    display: flex;
-    justify-content: center;
+  .top h1{
+    font-size: 50px;
+    font-family: 'Jost', sans-serif;
+    text-shadow: 2px 2px #555;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 15%;
   }
-
   #reupload{
     padding-top: 3%;
   }
-  #content {
-      padding-top: 3%;
-  }
-
   #submitBt{
       margin-top: 10%;
   }
-  #tab1Header {
-      margin-bottom: 5%;
+.content{
+  width: 50%;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.main {
+    border: 2px solid #8FFF93;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-width: 2px 2px 2px;
+    background-color: #D2CFD6;
+    border-radius: 20px 15px;
+    justify-content: center;
+}
+#uploadHeader {
+  font-size: 32px;
+  font-family: 'Jost', sans-serif;
+  color: #535559;
+  margin-top: 10%;
+  margin-bottom: 7%;
+}
+  .btn-container{
+  background:#fff;
+  border-radius:5px;
+  padding-bottom:20px;
+  margin-bottom:20px;
+  margin: 0 auto;
   }
-  #exTab1 .tab-content {
-    color : white;
-    background-color: #428bca;
-    padding : 5px 15px;
+  .white{
+  color:white;
   }
-
-  #exTab2 h3 {
-    color : white;
-    background-color: #428bca;
-    padding : 5px 15px;
+  .imgupload{
+  color:#1E2832;
+  padding-top:40px;
+  font-size: 80px;
+  font-family: 'Jost', sans-serif;
+  padding-top: 5%;
   }
-
-  /* remove border radius for the tab */
-
-  #exTab1 .nav-pills > li > a {
-    border-radius: 0;
+  #namefile{
+  font-family: 'Jost', sans-serif;
+  color:black;
+  padding-bottom: 5%;
   }
-
-  /* change border radius for the tab , apply corners on top*/
-
-  #exTab3 .nav-pills > li > a {
-    border-radius: 4px 4px 0 0 ;
+  h4>strong{
+  color:#ff3f3f
   }
-
-  #exTab3 .tab-content {
-    color : white;
-    background-color: #428bca;
-    padding : 5px 15px;
+  .btn-primary{
+  border-color: #FF3F3F !important;
+  color: #FFFFFF;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #FF3F3F !important;
+  border-color: #FF3F3F !important;
   }
-
-
-
-
-
+  /*these two are set to not display at start*/
+  .imgupload.ok{
+  display:none;
+  color:green;
+  }
+  .imgupload.stop{
+  display:none;
+  color:red;
+  }
+  /*this sets the actual file input to overlay our button*/
+  #fileup{
+  opacity: 0;
+  -moz-opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  width:200px;
+  cursor: pointer;
+  position:absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+  height: 50px;
+  }
+  /*switch between input and not active input*/
+  #submitbtn{
+    padding:5px 50px;
+    display:none;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    margin-top: 5%;
+    margin-bottom: 7%;
+  }
+  #fakebtn{
+    padding:5px 40px;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    margin-top: 5%;
+    margin-bottom: 7%;
+  }

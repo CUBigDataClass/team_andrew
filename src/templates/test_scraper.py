@@ -13,7 +13,7 @@ def imageScrapping():
     '''
     Install selenium and chromedriver (make sure chromedriver matches your version of chrome)
     '''
-    # download chromedriver and place it somewhere
+    # download chromedriver and place it somewhere 
     option = webdriver.ChromeOptions()
     # Prevent some useless logs
     # option.add_experimental_option("excludeSwitches", ['enable-automation', 'enable-logging'])
@@ -23,11 +23,11 @@ def imageScrapping():
     option.add_argument("--window-size=1920,1080")
     option.add_argument('--disable-dev-shm-usage')
     option.add_argument('--disable-gpu')
-    # chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--headless") 
     # chrome_options.add_argument("--window-size=1920x1080")
     # chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("--no-sandbox")
-
+    
 
     driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", options=option)
     try:
@@ -53,7 +53,7 @@ def imageScrapping():
     # search_URL = "https://www.google.com/search?q=cute+puppies&source=lnms&tbm=isch"
     # driver.get(search_URL)
     num_images = 5
-    # scroll down until we have enough images
+    # scroll down until we have enough images 
     while True:
         page_html = driver.page_source
         pageSoup = bs4.BeautifulSoup(page_html, 'html.parser')
@@ -100,7 +100,7 @@ def imageScrapping():
         my_client = MongoClient("mongodb+srv://team_andrew:Green91%40%40@cluster1.jsqyd.mongodb.net/test")
         db = my_client.ImageSearch #connect to "ImageSearch" Database
         collection = db.get_collection("ImageData") #connect to "ImageData" Collection
-        image_element = {"imageLink": imageURL,"description": image_description,"websiteLink":image_website, "previewImageURL:":preview_image_url} #Create Element
+        image_element = {"imageLink": imageURL,"description": image_description,"websiteLink":image_website} #Create Element
         data = [image_element]
         result = collection.insert_many(data) #insert the saved data into the collection
 
