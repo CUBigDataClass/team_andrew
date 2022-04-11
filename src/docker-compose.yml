@@ -1,6 +1,6 @@
 version: '2'
 services:
-  backend:
+  app1:
     build:
       context: .
       dockerfile: Dockerfile.dockerfile
@@ -8,4 +8,12 @@ services:
       - '5000:5000'
     volumes:
       - .:/app
+  app2:
+    build:
+      context: .
+      dockerfile: app2.dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app2
   
