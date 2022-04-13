@@ -4,9 +4,10 @@ import spacy
 nlp = spacy.load('en_core_web_sm')
 
 
-
 def multi_run_ner(args):
+
    return get_ner_data(*args)
+
 
 def get_ner_data(text,id):
     out = {}
@@ -17,3 +18,4 @@ def get_ner_data(text,id):
     out["ner_vals"] = entities
     return out
 
+print(get_ner_data("Microsoft is a big company",7888))

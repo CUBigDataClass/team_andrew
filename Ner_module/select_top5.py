@@ -1,52 +1,22 @@
-from collections import Counter 
+from ner_module import multi_run_ner
+import multiprocessing
+from pymongo import MongoClient
+from multiprocessing import Pool
+from itertools import product
+import time
+from flask import Flask
+from flask_restful import Resource, Api, reqparse
 
-def select_top(lst):
-    #lst will be in format List[List[]]
-    flatList = [el for sublist in lst for el in sublist]
-    word_counts = Counter(flatList)
-    top_five = word_counts.most_common(5)
-    return top_five
-              
 
-lst =  [
-      [
-        "cool",
-        "dog",
-        "breeds",
-        "cat",
-        "owners",
-        "5",
-        "easy",
-        "train",
-        "pups",
-        "hello"
-      ],
-      [
-        "10",
-        "cutest",
-        "dog",
-        "breeds"
-      ],
-      [
-        "10",
-        "cutest",
-        "dog",
-        "breeds",
-        "2022",
-        "love",
-        "goldens"
-      ],
-      [
-        "15",
-        "cute",
-        "dog",
-        "breeds",
-        "cool",
-        "cutest",
-        "able",
-        "resist",
-        "southern",
-        "living"
-      ]
-    ]
-print(select_top(lst))
+my_client = MongoClient("mongodb+srv://team_andrew:Green91%40%40@cluster1.jsqyd.mongodb.net/test")
+db = my_client.ImageSearch
+collection = db["Test"]
+x = collection.find()
+
+if __name__ == '__main__':
+    start_time = time.time()
+    p = Pool()
+    data = p.map(multi_run_ner, [(i['description'],i['_id']) for i in x])
+    p.close()
+    print("--- %s seconds ---" % (time.time() - start_time))
+    print(data)
