@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 body {
+    padding : 10px ;
   text-align: center;
   justify-content: center;
   margin: 0 auto;
@@ -21,7 +22,6 @@ body {
     text-align: center;
     padding: 5px 5px;
     text-decoration: none;
-    font-weight: bold;
     font-family: 'Allerta Stencil', sans-serif;
     font-size: 30px;
     text-shadow: 2px 2px 2px gray;
@@ -30,6 +30,10 @@ body {
     text-decoration: none;
     color: #212329;
     text-shadow: 2px 2px 2px gray;
+  }
+  .center-pills {
+    display: flex;
+    justify-content: center;
   }
   .main {
     margin-left: 10%;
@@ -45,12 +49,19 @@ body {
     color: #FFFFFF;
     text-align: center;
     padding-top: 15%;
+    font-weight: 500;
   }
   #reupload{
     padding-top: 3%;
   }
+  #content {
+      padding-top: 3%;
+  }
   #submitBt{
       margin-top: 10%;
+  }
+  #tab1Header {
+      margin-bottom: 5%;
   }
 .content{
   width: 50%;
@@ -64,8 +75,11 @@ body {
     margin-right: 20%;
     border-width: 2px 2px 2px;
     background-color: #D2CFD6;
-    border-radius: 20px 15px;
+    border-radius: 30px 30px;
     justify-content: center;
+    -moz-box-shadow: 7px 7px 6px #111;
+    -webkit-box-shadow: 7px 7px 6px #111;
+    box-shadow: 7px 7px 6px #111;
 }
 #uploadHeader {
   font-size: 32px;
@@ -76,13 +90,19 @@ body {
 }
   .btn-container{
   background:#fff;
-  border-radius:5px;
+  border-radius:20px;
   padding-bottom:20px;
   margin-bottom:20px;
   margin: 0 auto;
+  padding-top: 5%;
   }
   .white{
   color:white;
+  }
+  #exTab1 .tab-content {
+    color : white;
+    background-color: #428BCA;
+    padding : 5px 15px;
   }
   .imgupload{
   color:#1E2832;
@@ -90,21 +110,43 @@ body {
   font-size: 80px;
   font-family: 'Jost', sans-serif;
   padding-top: 5%;
+  border-radius:10px;
+  }
+
+  #exTab2 h3 {
+    color : white;
+    background-color: #428BCA;
+    padding : 5px 15px;
   }
   #namefile{
   font-family: 'Jost', sans-serif;
   color:black;
   padding-bottom: 5%;
+  border-radius:10px;
+  }
+  /* remove border radius for the tab */
+  #exTab1 .nav-pills > li > a {
+    border-radius: 0;
   }
   h4>strong{
-  color:#ff3f3f
+  color:#EE3C47
+  }
+  /* change border radius for the tab , apply corners on top*/
+  #exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
   }
   .btn-primary{
-  border-color: #FF3F3F !important;
+  border-color: #EE3C47 !important;
   color: #FFFFFF;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #FF3F3F !important;
-  border-color: #FF3F3F !important;
+  background-color: #EE3C47 !important;
+  border-color: #EE3C47 !important;
+  border-radius:10px;
+  }
+  #exTab3 .tab-content {
+    color : white;
+    background-color: #428BCA;
+    padding : 5px 15px;
   }
   /*these two are set to not display at start*/
   .imgupload.ok{
@@ -136,6 +178,7 @@ body {
     font-size: 20px;
     margin-top: 5%;
     margin-bottom: 7%;
+    border-radius:10px;
   }
   #fakebtn{
     padding:5px 40px;
@@ -143,4 +186,5 @@ body {
     font-size: 20px;
     margin-top: 5%;
     margin-bottom: 7%;
+    border-radius:10px;
   }

@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="..\static\style2.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;600&display=swap" rel="stylesheet">
     <title>Image Similarity Application</title>
 </head>
     <body>
@@ -14,11 +21,166 @@
         <div class="image">
             <h3 style="text-align: center;">Similar Images</h3>]
             <img src=" {{ variable[0] }}" alt="Image list" width="40%" height="40%" id="center-pills">
+    <body style="background-color:#23314D;">
+        <div class="header">
+            <a href="#upload" class="logo">NFTCHECK</a>
+        </div>
+        <div class="top">
+            <h1>Check the Value of Image!</h1>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <div class="imgbox">
+                        <img src="temp.jpg" id="image" style="border-radius: 15px;">
+                    </div>
+                        <!-- <img src=" {{url_for('send_image', filename=image_name)}}" width="40%" height="40%"> -->
+                        <h4 class="header1" style="margin-bottom: 20%;">Uploaded Image</h4>
+                        <a href="{{ url_for('index') }}" type="button" class="btnClick" >Reupload</a>
+                </div>
+        </div>
+        <div class="column2">
+            <div class="card2">
+                <div class="row2">
+                    <div class="column3">
+                        <div class="imgbox">
+                            <img src="temp.jpg" id="image" style="border-radius: 15px;">
+                        </div>
+                        <h4 class="header2">Most Matching Image</h4>
+                    </div>
+                    <div class="column4">
+                        <div id="pie-mold" class="yummy-pie" data-percentage="80" data-baking-time="1200"></div>
+                        <h4 class="header2">Highest Matching %: 100%</h4>
+                    </div>
+                </div>
+                <a href="{{ url_for('index') }}" type="button" class="btnClick2" >View</a>
+            </div>
+        </div>
+    </div>
+    <div id="outer" style="text-align:center;">
+        <div class="tag"><p class="inner">cat</p></div>
+        <div class="tag"><p class="inner">long-hair</p></div>
+        <div class="tag"><p class="inner">cute</p></div>
+        <div class="tag"><p class="inner">animal</p></div>
+        <div class="tag"><p class="inner">kitten</p></div>
+    </div>
+    <hr>
+    <div class="botrow">
+        <h3 style="text-align: center;">More Images</h3>
+        <div class="botcol">
+            <div className="container">
+                <img src="temp.jpg" alt="Avatar" id="viewBox"/>
+                <div class="stats">
+                    <p>lorem impsen</p>
+                    <!-- <div id="pie-mold" class="yummy-pie" data-percentage="70" data-baking-time="1200"></div> -->
+                    <a href="{{ url_for('index') }}" type="button" class="btnClick2">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="botcol2">
+            <div className="container2">
+                <img src="temp.jpg" alt="Avatar" id="viewBox2"/>
+                <div class="stats2">
+                    <p>lorem impsen</p>
+                    <!-- <div id="pie-mold" class="yummy-pie" data-percentage="45" data-baking-time="1200"></div> -->
+                    <a href="{{ url_for('index') }}" type="button" class="btnClick2" >View</a>
+                </div>
+            </div>
+        </div>
+        <div class="botcol">
+            <div className="container">
+                <img src="temp.jpg" alt="Avatar" id="viewBox"/>
+                <div class="stats">
+                    <p>lorem impsen</p>
+                    <!-- <div id="pie-mold" class="yummy-pie" data-percentage="65" data-baking-time="1200"></div> -->
+                    <a href="{{ url_for('index') }}" type="button" class="btnClick2" >View</a>
+                </div>
+            </div>
+        </div>
+        <div class="botcol2">
+            <div className="container2">
+                <img src="temp.jpg" alt="Avatar" id="viewBox2"/>
+                <div class="stats2">
+                    <p>lorem impsen</p>
+                    <!-- <div id="pie-mold" class="yummy-pie" data-percentage="76" data-baking-time="1200"></div> -->
+                    <a href="{{ url_for('index') }}" type="button" class="btnClick2" >View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- <img src=" {{ variable[0] }}" alt="Image list" width="40%" height="40%" id="center-pills">
             <img src=" {{ variable[1] }}" alt="Image list" width="40%" height="40%" id="center-pills">
             <img src=" {{ variable[2] }}" alt="Image list" width="40%" height="40%" id="center-pills">
             <img src=" {{ variable[3] }}" alt="Image list" width="40%" height="40%" id="center-pills">
             <img src=" {{ variable[4] }}" alt="Image list" width="40%" height="40%" id="center-pills">
         </div>
         <a href="{{ url_for('index') }}" style="text-align: center;" id="reupload" ><input class="btn" type="button" value="Reupload Image"/></a>
+            <img src=" {{ variable[4] }}" alt="Image list" width="40%" height="40%" id="center-pills"> -->
+<div class="last">
+    <a href="{{ url_for('index') }}" type="button" class="btnClick">Reupload</a>
+</div>
+<script>
+    jQuery.fn.getCircleLength = function() {
+    console.log('gcl');
+        var r = this.attr('r');
+        var lng = 2 * Math.PI * r;
+        return lng;
+    };
+    function makePie (mold){
+    $(mold).html('<svg class="pie" viewBox="0 0 200 200"><circle cx="100" cy="100" r="88.936" class="pie-trail"/><circle cx="100" cy="100" r="88.936" class="pie-stuffing"/></svg><span class="counter"></span>'); //put some sweet svg dough to the mold
+    var stuffing = $(mold + ' .pie-stuffing'),
+        lineWidth = parseInt(stuffing.css("stroke-width"), 10);
+        totalLength = $(stuffing).getCircleLength() + lineWidth; //  lineWidth needed to hide linecap
+    console.log (stuffing.get(0));
+    $(mold + " span").data("current", 0);
+    //hide line using setting gap in dashed line to full line's length
+    $(stuffing).css({
+        'stroke-dashoffset': totalLength,
+        'stroke-dasharray': totalLength + ' ' + totalLength
+    })
+    } // END: makePie()
+    function bakePie(mold, options) {
+        var defaults = {
+            percentage: $(mold).data("percentage"),
+        duration: $(mold).data("baking-time"),
+        counter: $(mold + " span").data("current"),
+        frame: 100 //how long to display single value when counting
+        };
+        $.extend(true, defaults, options);
+        options = defaults;
+        var stuffing = $(mold + ' .pie-stuffing'),
+            lineWidth = parseInt(stuffing.css("stroke-width"), 10),
+            totalLength = $(stuffing).getCircleLength() + lineWidth, // lineWidth needed to hide linecaps
+            counter = options.counter,
+            toCount = options.percentage - counter,
+            pieChunk = toCount / (options.duration / options.frame), //percentage chunks to be iterated by
+            almostDone = options.percentage - pieChunk,
+            iterate = setTimeout(count, options.frame); //turn on counting
+    function count() { //counting function. I can't tell if it's clever or totaly dumb, but it does the job.
+        counter+=pieChunk;
+        $(mold + " span").data("current", counter).text(Math.round(counter) + "%");
+        if (counter < almostDone & pieChunk > 0) { //stop iteratng
+            iterate = setTimeout(count, options.frame);
+        }
+        else if (counter > almostDone & pieChunk < 0) {
+            iterate = setTimeout(count, options.frame);
+        }
+        else {
+            iterate = setTimeout(function(){
+            $(mold + " span").data("current", options.percentage).text(options.percentage + "%");
+            clearTimeout(iterate);
+            }, options.frame);
+        }
+    }
+    //animate chart
+    $(stuffing).animate({
+        'stroke-dashoffset': totalLength*(100-options.percentage)/100
+    }, options.duration );
+    }  // END: bakePie()
+    makePie('#pie-mold');
+    setTimeout(function(){ bakePie('#pie-mold'); }, 2000);
+    setTimeout(function(){ bakePie('#pie-mold', {percentage:45}); }, 6000);
+    setTimeout(function(){ bakePie('#pie-mold', {percentage:100}); }, 10000);
+            </script>
     </body>
 </html>
