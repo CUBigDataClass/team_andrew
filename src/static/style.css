@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 body {
-    padding : 10px ;
   text-align: center;
   justify-content: center;
   margin: 0 auto;
@@ -31,11 +30,8 @@ body {
     color: #212329;
     text-shadow: 2px 2px 2px gray;
   }
-  .center-pills {
-    display: flex;
-    justify-content: center;
-  }
-  .main {
+
+.main {
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 10%;
@@ -54,15 +50,11 @@ body {
   #reupload{
     padding-top: 3%;
   }
-  #content {
-      padding-top: 3%;
-  }
-  #submitBt{
+
+#submitBt{
       margin-top: 10%;
   }
-  #tab1Header {
-      margin-bottom: 5%;
-  }
+
 .content{
   width: 50%;
   text-align: center;
@@ -99,12 +91,8 @@ body {
   .white{
   color:white;
   }
-  #exTab1 .tab-content {
-    color : white;
-    background-color: #428BCA;
-    padding : 5px 15px;
-  }
-  .imgupload{
+
+.imgupload{
   color:#1E2832;
   padding-top:40px;
   font-size: 80px;
@@ -113,29 +101,17 @@ body {
   border-radius:10px;
   }
 
-  #exTab2 h3 {
-    color : white;
-    background-color: #428BCA;
-    padding : 5px 15px;
-  }
-  #namefile{
+#namefile{
   font-family: 'Jost', sans-serif;
   color:black;
   padding-bottom: 5%;
   border-radius:10px;
   }
-  /* remove border radius for the tab */
-  #exTab1 .nav-pills > li > a {
-    border-radius: 0;
-  }
-  h4>strong{
+h4>strong{
   color:#EE3C47
   }
-  /* change border radius for the tab , apply corners on top*/
-  #exTab3 .nav-pills > li > a {
-    border-radius: 4px 4px 0 0 ;
-  }
-  .btn-primary{
+
+.btn-primary{
   border-color: #EE3C47 !important;
   color: #FFFFFF;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -143,12 +119,8 @@ body {
   border-color: #EE3C47 !important;
   border-radius:10px;
   }
-  #exTab3 .tab-content {
-    color : white;
-    background-color: #428BCA;
-    padding : 5px 15px;
-  }
-  /*these two are set to not display at start*/
+
+/*these two are set to not display at start*/
   .imgupload.ok{
   display:none;
   color:green;
@@ -170,8 +142,7 @@ body {
   bottom: 40px;
   height: 50px;
   }
-  /*switch between input and not active input*/
-  #submitbtn{
+#submitbtn{
     padding:5px 50px;
     display:none;
     font-family: 'Jost', sans-serif;
