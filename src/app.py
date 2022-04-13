@@ -13,7 +13,7 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 @app.route("/")
 def index():
     #delete all data in database in homepage
-    # deleteDB.deleteAll()
+    deleteDB.deleteAll()
     return render_template("upload.html")
 
 #Connect hompage with complete.html, and create upload and submit features
