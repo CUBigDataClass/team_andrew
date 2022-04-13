@@ -24,9 +24,10 @@
         <div class="column">
             <div class="card">
                 <div class="imgbox">
-                    <img src="temp.jpg" id="image" style="border-radius: 15px;">
+                    <!-- <img src="temp.jpg" id="image" style="border-radius: 15px;"> -->
+                    <img src=" {{url_for('send_image', filename=image_name)}}" id="image" style="border-radius: 15px;">
                 </div>
-                    <!-- <img src=" {{url_for('send_image', filename=image_name)}}" width="40%" height="40%"> -->
+
                     <h4 class="header1" style="margin-bottom: 20%;">Uploaded Image</h4>
                     <a href="{{ url_for('index') }}" type="button" class="btnClick" >Reupload</a>
             </div>
@@ -36,7 +37,8 @@
             <div class="row2">
                 <div class="column3">
                     <div class="imgbox">
-                        <img src="temp.jpg" id="image" style="border-radius: 15px;">
+                        <!-- <img src="temp.jpg" id="image" style="border-radius: 15px;"> -->
+                        <img src=" {{ variable[0] }}" id="image" style="border-radius: 15px;">
                     </div>
                     <h4 class="header2">Most Matching Image</h4>
                 </div>
@@ -61,7 +63,8 @@
     <h3 style="text-align: center;">More Images</h3>
     <div class="botcol">
         <div className="container">
-            <img src="temp.jpg" alt="Avatar" id="viewBox"/>
+            <!-- <img src="temp.jpg" alt="Avatar" id="viewBox"/> -->
+            <img src=" {{ variable[1] }}" alt="Avatar" id="viewBox">
             <div class="stats">
                 <p>lorem impsen</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="70" data-baking-time="1200"></div> -->
@@ -71,7 +74,8 @@
     </div>
     <div class="botcol2">
         <div className="container2">
-            <img src="temp.jpg" alt="Avatar" id="viewBox2"/>
+            <!-- <img src="temp.jpg" alt="Avatar" id="viewBox2"/> -->
+            <img src=" {{ variable[2] }}" alt="Avatar" id="viewBox2">
             <div class="stats2">
                 <p>lorem impsen</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="45" data-baking-time="1200"></div> -->
@@ -81,7 +85,8 @@
     </div>
     <div class="botcol">
         <div className="container">
-            <img src="temp.jpg" alt="Avatar" id="viewBox"/>
+            <!-- <img src="temp.jpg" alt="Avatar" id="viewBox"/> -->
+            <img src=" {{ variable[3] }}" alt="Avatar" id="viewBox">
             <div class="stats">
                 <p>lorem impsen</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="65" data-baking-time="1200"></div> -->
@@ -91,7 +96,8 @@
     </div>
     <div class="botcol2">
         <div className="container2">
-            <img src="temp.jpg" alt="Avatar" id="viewBox2"/>
+            <!-- <img src="temp.jpg" alt="Avatar" id="viewBox2"/> -->
+            <img src=" {{ variable[4] }}" alt="Avatar" id="viewBox2">
             <div class="stats2">
                 <p>lorem impsen</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="76" data-baking-time="1200"></div> -->
@@ -100,10 +106,9 @@
         </div>
     </div>
 </div>
-2:37
-<img src=" {{ variable[4] }}" alt="Image list" width="40%" height="40%" id="center-pills"> -->
+
 <div class="last">
-<a href="{{ url_for('index') }}" type="button" class="btnClick">Reupload</a>
+    <a href="{{ url_for('index') }}" type="button" class="btnClick">Reupload</a>
 </div>
 <script>
 jQuery.fn.getCircleLength = function() {
