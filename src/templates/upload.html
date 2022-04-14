@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <title>Image Similarity Application</title>
 </head>
-    <body style="background-color:#23314D;">
+    <body style="background-color:#23314D;" id="content">
         <div class="header">
             <a href="#upload" class="logo">NFTCHECK</a>
         </div>
@@ -45,7 +45,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <!--the defauld disabled btn and the actual one shown only if the three fields are valid-->
+
                             <input type="submit" value="Submit!" class="btn btn-primary" id="submitbtn">
+
                             <button type="button" class="btn btn-default" disabled="disabled" id="fakebtn">Submit! <i class="fa fa-minus-circle"></i></button>
                         </div>
                 </div>
@@ -53,6 +55,7 @@
             </div>
         </div>
         <script>
+
             $('#fileup').change(function(){
         //here we take the file extension and set an array of valid extensions
             var res=$('#fileup').val();
@@ -84,19 +87,3 @@
         </script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

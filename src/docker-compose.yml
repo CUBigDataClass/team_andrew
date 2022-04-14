@@ -8,12 +8,10 @@ services:
       - '5000:5000'
     volumes:
       - .:/app
-  app2:
-    build:
-      context: .
-      dockerfile: app2.dockerfile
-    ports:
-      - '3000:3000'
-    volumes:
-      - .:/app2
+  mongodb:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=team_andrew
+      - MONGO_INITDB_ROOT_PASSWORD=Green
   

@@ -47,16 +47,23 @@
                     <h4 class="header2">Highest Matching %: 100%</h4>
                 </div>
             </div>
-            <a href="{{ url_for('index') }}" type="button" class="btnClick2" >View</a>
+            <a href=" {{ variable[0] }}" type="button" class="btnClick2" >View</a>
         </div>
     </div>
 </div>
+<h5 style="text-align: center;">Top Tags</h5>
 <div id="outer" style="text-align:center;">
     <div class="tag"><p class="inner">cat</p></div>
     <div class="tag"><p class="inner">long-hair</p></div>
     <div class="tag"><p class="inner">cute</p></div>
     <div class="tag"><p class="inner">animal</p></div>
     <div class="tag"><p class="inner">kitten</p></div>
+</div>
+<h5 style="text-align: center;">Top Topics</h5>
+<div id="outer" style="text-align:center;">
+    <div class="tag"><p class="inner">Organization</p></div>
+    <div class="tag"><p class="inner">Animal</p></div>
+    <div class="tag"><p class="inner">Company</p></div>
 </div>
 <hr>
 <div class="botrow">
@@ -68,7 +75,7 @@
             <div class="stats">
                 <p>lorem impsen</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="70" data-baking-time="1200"></div> -->
-                <a href="{{ url_for('index') }}" type="button" class="btnClick2">View</a>
+                <a href=" {{ variable[1] }}" type="button" class="btnClick2">View</a>
             </div>
         </div>
     </div>
@@ -79,7 +86,7 @@
             <div class="stats2">
                 <p>lorem impsen</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="45" data-baking-time="1200"></div> -->
-                <a href="{{ url_for('index') }}" type="button" class="btnClick2" >View</a>
+                <a href=" {{ variable[2] }}" type="button" class="btnClick2" >View</a>
             </div>
         </div>
     </div>
@@ -90,7 +97,7 @@
             <div class="stats">
                 <p>lorem impsen</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="65" data-baking-time="1200"></div> -->
-                <a href="{{ url_for('index') }}" type="button" class="btnClick2" >View</a>
+                <a href=" {{ variable[3] }}" type="button" class="btnClick2" >View</a>
             </div>
         </div>
     </div>
@@ -101,7 +108,7 @@
             <div class="stats2">
                 <p>lorem impsen</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="76" data-baking-time="1200"></div> -->
-                <a href="{{ url_for('index') }}" type="button" class="btnClick2" >View</a>
+                <a href=" {{ variable[4] }}" type="button" class="btnClick2" >View</a>
             </div>
         </div>
     </div>
@@ -111,6 +118,7 @@
     <a href="{{ url_for('index') }}" type="button" class="btnClick">Reupload</a>
 </div>
 <script>
+
 jQuery.fn.getCircleLength = function() {
 console.log('gcl');
     var r = this.attr('r');
