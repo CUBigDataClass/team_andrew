@@ -8,7 +8,7 @@ body {
   .header {
     overflow: hidden;
     background-color: #8FFF93;
-    position: sticky;
+    position: relative;
     top: 0;
     width: 100%;
     border-bottom-right-radius: 20px 15px;
@@ -20,7 +20,10 @@ body {
     text-align: center;
     padding: 5px 5px;
     text-decoration: none;
-    font-family: 'Allerta Stencil', sans-serif;
+    /* font-family: 'Allerta Stencil', sans-serif; */
+    font-family: masqualero, sans-serif;
+    font-style: normal;
+    font-weight: 700;
     font-size: 30px;
     text-shadow: 2px 2px 2px gray;
   }
@@ -29,14 +32,39 @@ body {
     color: #212329;
     text-shadow: 2px 2px 2px gray;
   }
-.top h1{
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#text{
+  width: auto;
+  text-align: center;
   font-size: 50px;
   font-family: 'Jost', sans-serif;
-  text-shadow: 2px 2px #555;
+  text-shadow: 3px 3px 3px #111;
   color: #FFFFFF;
-  text-align: center;
-  padding-top: 10%;
   font-weight: 500;
+}
+
+.char{
+  font-size: 50px;
+  animation: an 1s ease-out 1 both;
+  display: inline-block;
+}
+
+@keyframes an{
+  from{
+      opacity: 0;
+      transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+  }
+  to{
+      opacity: 1;
+      transform: perspective(500px) translate3d(0, 0, 0);
+  }
 }
 /* Float four columns side by side */
 .column{
@@ -62,7 +90,7 @@ width:45%;
 /* Remove extra left and right margins, due to padding */
 .row {
   margin: 0 auto;
-  margin-top: 8%;
+  margin-top: 6%;
   margin-bottom: 5%;
 }
 /* Clear floats after the columns */
@@ -179,25 +207,31 @@ hr {
   text-align:center;
 }
 .inner{
+  text-transform:uppercase;
   background-color: #FFFFFF;
   width: auto;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
-  border: 2px solid #8FFF93;
-  border-radius: 7px;
+  border: 2px solid #D2CFD6;
+  border-radius: 3px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 15px;
   font-weight: 600;
   float: left;
 }
+.inner:hover{
+  background:#23314D;
+  color:#fff;
+  border: 2px solid #fff;
+}
 .tag{
   margin: 0;
   display: inline-block;
   width: auto;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 h3{
   font-size: 32px;
@@ -284,6 +318,8 @@ h5{
   display: block;
   max-width: 100%;
   max-height: 100vh;
+  outline: #fff solid 3px;
+
 }
 #viewBox2{
   margin-bottom:-150px; /* 156px is half of #userAvatar's height */
@@ -297,6 +333,7 @@ h5{
   display: block;
   max-width: 100%;
   max-height: 100vh;
+  outline: #fff solid 3px;
 }
 .stats {
   padding-top:150px; /* half of #userAvatar's height */
@@ -379,27 +416,52 @@ color: #EE3C47;
 background: #fff !important;
 }
 .btnClick2{
-background: #6785C2;
+background: #ffffff;
 font-family: 'Jost', sans-serif;
 font-size: 16px;
 border-radius: 40px;
 padding: 13px 40px;
 text-decoration: none;
-color: #8FFF93;
+color: #23314D;
 font-weight: 500;
 letter-spacing: 0.1px;
 transition: all 0.25s linear;
 -moz-box-shadow: 5px 5px 3px #333;
 -webkit-box-shadow: 5px 5px 3px #333;
 box-shadow: 5px 5px 3px #333;
+margin-right: 2%;
 }
 .btnClick2:hover{
-color: #6785C2;
-background: #8FFF93 !important;
+color: #ffffff;
+background: #6785C2 !important;
 -moz-box-shadow: 7px 7px 6px #333;
 -webkit-box-shadow: 7px 7px 6px #333;
 box-shadow: 7px 7px 6px #333;
 }
+
+.btnClick3{
+  margin-left: 2%;
+  background: #6785C2;
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  border-radius: 40px;
+  padding: 13px 40px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  transition: all 0.25s linear;
+  -moz-box-shadow: 5px 5px 3px #333;
+  -webkit-box-shadow: 5px 5px 3px #333;
+  box-shadow: 5px 5px 3px #333;
+  }
+  .btnClick3:hover{
+  color: #23314D;
+  background: #ffffff !important;
+  -moz-box-shadow: 7px 7px 6px #333;
+  -webkit-box-shadow: 7px 7px 6px #333;
+  box-shadow: 7px 7px 6px #333;
+  }
 .last{
 text-align: center;
 margin-bottom: 5%;

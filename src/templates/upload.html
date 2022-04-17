@@ -14,14 +14,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/fpz5acr.css">
     <title>Image Similarity Application</title>
 </head>
     <body style="background-color:#23314D;" id="content">
         <div class="header">
             <a href="#upload" class="logo">NFTCHECK</a>
         </div>
-        <div class="top">
-            <h1>Discover & Check Your Sources</h1>
+        <div>
+            <div class="top">A New Approach</div>
+            <div class="top">
+                <span>to Inspect the Value of Image</span>
+            </div>
+        </div>
+        <div class="middle">
+            <span id="title"> Discover & Check Your Sources!</span>
+        </div>
+
+        <div class="topbottom">
+            <p id="text">We help the people who wishes to investigate the value of the images in your local storage.
+            Just upload the image with one button for the result.</p>
         </div>
         <div class="main">
             <div class="content">
@@ -55,6 +67,41 @@
             </div>
         </div>
         <script>
+            /* topbottom id ="text" animation part */
+            var text = document.getElementById('text');
+            var newDom = '';
+            var animationDelay = 6;
+
+            for(let i = 0; i < text.innerText.length; i++)
+            {
+                newDom += '<span class="char">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i])+ '</span>';
+            }
+
+            text.innerHTML = newDom;
+            var length = text.children.length;
+
+            for(let i = 0; i < length; i++)
+            {
+                text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+            }
+
+            /* middle id ="title" animation part */
+            var title = document.getElementById('title');
+            var newDom = '';
+            var animationDelay = 6;
+
+            for(let i = 0; i < title.innerText.length; i++)
+            {
+                newDom += '<span class="char2">' + (title.innerText[i] == ' ' ? '&nbsp;' : title.innerText[i])+ '</span>';
+            }
+
+            title.innerHTML = newDom;
+            var length = title.children.length;
+
+            for(let i = 0; i < length; i++)
+            {
+                title.children[i].style['animation-delay'] = animationDelay * i + 'ms';
+            }
 
             $('#fileup').change(function(){
         //here we take the file extension and set an array of valid extensions
