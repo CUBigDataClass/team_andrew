@@ -70,6 +70,7 @@ def imageScrapping():
 
     #create list of imageurl to use in app.py and html
     image_list = []
+    image_web = []
 
     for i in range(1,num_images + 1):
         # in google images every 25th images is 'related images', this will break if we click this
@@ -106,8 +107,15 @@ def imageScrapping():
 
         #append each imageURL
         image_list.append(imageURL)
-
+        image_web.append(image_website)
         # print("image description:", image_description)
         # print("image URL", imageURL)
         # print("image website:", image_website)
-    return image_list
+    return image_list,image_web
+
+def imgurl():
+    val, trash =imageScrapping()
+    return val
+def imgweb():
+    trash, val = imageScrapping()
+    return val

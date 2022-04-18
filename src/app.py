@@ -32,9 +32,9 @@ def upload():
         file.save(destination)
 
     #calling test_scraper.py for image scraping after the user clicks on Submit button.
-    var = test_scraper.imageScrapping()
-
-    return render_template("complete.html", image_name="temp.jpg", variable=var)
+    var = test_scraper.imgurl()
+    var2 = test_scraper.imgweb()
+    return render_template("complete.html", image_name="temp.jpg", variable=var, variable2=var2)
 
 #Display uploaded image from user
 @app.route('/upload/<filename>')
