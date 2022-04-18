@@ -39,7 +39,7 @@ async def upload(request):
     #calling test_scraper.py for image scraping after the user clicks on Submit button.
     var = test_scraper.imgurl()
     var2 = test_scraper.imgweb()
-    template = open(os.getcwd() + "/templates/upload.html")
+    template = open(os.getcwd() + "/templates/complete.html")
     return render_template("complete.html", image_name="temp.jpg", variable=var, variable2=var2)
 
 #Display uploaded image from user

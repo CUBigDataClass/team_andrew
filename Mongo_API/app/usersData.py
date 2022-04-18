@@ -24,6 +24,8 @@ from tensorflow import keras
 from PIL import Image
 import math
 from math import sqrt
+from sanic import Sanic
+from sanic.response import html
 
 
 
@@ -87,7 +89,7 @@ collection = db.get_collection("ImageData")
 # collection = DATABASE.get_collection("ImageData") #connect to "ImageData" Collection
 
 @app.route("/")
-def get_initial_response():
+async def get_initial_response(request):
     """Welcome message for the API."""
     # Message to the user
     message = {
@@ -137,7 +139,7 @@ def get_initial_response():
 #         return "", 880
 
 @app.route("/api/v1/users", methods=['POST'])
-def create_user():
+async def create_user(request):
     """
        Function to create new users.
        """
@@ -166,7 +168,7 @@ def create_user():
 
 
 @app.route("/api/v1/users", methods=['GET'])
-def fetch_users():
+async def fetch_users(request):
     """
        Function to fetch the users.
        """
@@ -178,7 +180,7 @@ def fetch_users():
     return jsonify(users)
 
 @app.route("/api/v1/users/<obj_id>", methods=['GET'])
-def fetch_user(obj_id):
+async def fetch_user(obj_id):
     users = []
     user = collection.find()
     for j in user:
@@ -190,7 +192,7 @@ def fetch_user(obj_id):
 
 
 @app.route("/image_id", methods=['GET'])
-def fetch_image_id():
+async def fetch_image_id(request):
     user = collection.find()
 
     features = []
@@ -244,7 +246,7 @@ def fetch_image_id():
 
 
 @app.route("/api/v1/users/<user_id>", methods=['DELETE'])
-def remove_user(user_id):
+async def remove_user(user_id):
     """
        Function to remove the user.
        """
@@ -265,7 +267,7 @@ def remove_user(user_id):
 
 
 @app.errorhandler(404)
-def page_not_found(e):
+async def page_not_found(e):
     """Send message to the user with notFound 404 status."""
     # Message to the user
     message = {
