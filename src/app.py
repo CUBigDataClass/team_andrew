@@ -56,15 +56,15 @@ async def upload(request):
     var2 = test_scraper.imgweb()
 
     template = env.get_template('complete.html')
-    content = template.render(image_name="temp.jpg", variable=var, variable2=var2)
+    content = template.render(image_name="images/temp.jpg", variable=var, variable2=var2)
     return html(content)
 
 # image_name = tuple(*[files for (_, _, files) in os.walk('./images/')])
 
 #Display uploaded image from user
-@app.route('/upload/<image_name>')
-async def send_image(image_name):
-    return image_name
+# @app.route('/upload/<image_name>')
+# async def send_image(image_name):
+#     return image_name
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True,workers=4)
