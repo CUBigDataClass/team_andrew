@@ -3,9 +3,9 @@
 # from config import client
 from collections import UserList
 from pyexpat import features
-from app import app
+# from app import app
 from bson.json_util import dumps
-from flask import request, jsonify
+# from flask import request, jsonify
 import json
 import ast
 from importlib.machinery import SourceFileLoader
@@ -25,7 +25,7 @@ from PIL import Image
 import math
 from math import sqrt
 from sanic import Sanic
-from sanic.response import html
+from sanic.response import html,json
 
 
 
@@ -98,7 +98,7 @@ async def get_initial_response(request):
         'message': 'Welcome to the Flask API'
     }
     # Making the message looks good
-    resp = jsonify(message)
+    resp = json(message)
     # Returning the object
     return resp
 
@@ -157,10 +157,10 @@ async def create_user(request):
         # Prepare the response
         if isinstance(record_created, list):
             # Return list of Id of the newly created item
-            return jsonify([str(v) for v in record_created]), 201
+            return json([str(v) for v in record_created]), 201
         else:
             # Return Id of the newly created item
-            return jsonify(str(record_created)), 201
+            return json(str(record_created)), 201
     except:
         # Error while trying to create the resource
         # Add message for debugging purpose
@@ -177,7 +177,7 @@ async def fetch_users(request):
     for j in user:
         j.pop('_id')
         users.append(j)
-    return jsonify(users)
+    return json(users)
 
 @app.route("/api/v1/users/<obj_id>", methods=['GET'])
 async def fetch_user(obj_id):
@@ -208,7 +208,7 @@ async def fetch_image_id(request):
     similary_score = []
     for i in range(5):
         similary_score.append(cosineSim(userURL, features[i]) * 100)
-    return jsonify(similary_score)
+    return json(similary_score)
 
 
 
@@ -277,7 +277,7 @@ async def page_not_found(e):
             }
     }
     # Making the message looks good
-    resp = jsonify(message)
+    resp = json(message)
     # Sending OK response
     resp.status_code = 404
     # Returning the object
