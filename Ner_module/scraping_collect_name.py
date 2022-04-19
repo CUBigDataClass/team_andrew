@@ -29,4 +29,4 @@ try:
     df = pd.DataFrame(collections, columns=['Collections'])
     df.to_csv("Opensea_collections.csv",index=False)
 except:
-    print("do it again bitch")
+    print("do it again")

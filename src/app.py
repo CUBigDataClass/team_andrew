@@ -5,14 +5,17 @@ import templates.test_scraper as test_scraper
 from templates.test_scraper import * #to import all variables from test_scraper.py
 import templates.deleteDB as deleteDB
 from sanic import Sanic,Blueprint
-from sanic.response import html,redirect
+from sanic.response import html,redirect,file
+from jinja2 import Template,PackageLoader,Environment
 import aiofiles
 
 app = Sanic(__name__)
+env = Environment(loader=PackageLoader('app', 'templates/'))
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 app.static('/static', './static')
-
+app.static('/templates', './templates')
+app.static('/images', './images')
 
 
 #Open Default homepage: upload.html
@@ -44,22 +47,24 @@ async def upload(request):
     }
 
     file_path = "/".join([target, "temp.jpg"])
-    print(file_path)
-    async with open(file_path, 'wb') as f:
+    with open(file_path, 'wb') as f:
         f.write(file_parameters['body'])
     f.close()
 
     #calling test_scraper.py for image scraping after the user clicks on Submit button.
     var = test_scraper.imgurl()
     var2 = test_scraper.imgweb()
-    template = open(os.getcwd() + "/templates/complete.html")
-    return html(template, image_name="temp.jpg", variable=var, variable2=var2)
+
+    template = env.get_template('complete.html')
+    content = template.render(image_name="temp.jpg", variable=var, variable2=var2)
+    return html(content)
+
+# image_name = tuple(*[files for (_, _, files) in os.walk('./images/')])
 
 #Display uploaded image from user
-@app.route('/upload/<filename>')
-async def send_image(filename):
-    return send_from_directory("images",filename)
-
+@app.route('/upload/<image_name>')
+async def send_image(image_name):
+    return image_name
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=True,workers=4)

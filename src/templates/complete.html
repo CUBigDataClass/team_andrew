@@ -26,11 +26,11 @@
             <div class="card">
                 <div class="imgbox">
                     <!-- <img src="temp.jpg" id="image" style="border-radius: 15px;"> -->
-                    <img src=" {{url_for('send_image', filename=image_name)}}" id="image" style="border-radius: 15px;">
+                    <img src=" {{'send_image',image_name}}" id="image" style="border-radius: 15px;">
                 </div>
 
                     <h4 class="header1" style="margin-bottom: 20%;">Uploaded Image</h4>
-                    <a href="{{ url_for('index') }}" type="button" class="btnClick" >Reupload</a>
+                    <a href="{{ 'index' }}" type="button" class="btnClick" >Reupload</a>
             </div>
     </div>
     <div class="column2">
@@ -121,7 +121,7 @@
 </div>
 
 <div class="last">
-    <a href="{{ url_for('index') }}" type="button" class="btnClick">Reupload</a>
+    <a href="{{'index'}}" type="button" class="btnClick">Reupload</a>
 </div>
 <script>
 /* top id ="text" animation part */
