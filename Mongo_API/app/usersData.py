@@ -26,7 +26,7 @@ import math
 from math import sqrt
 from sanic import Sanic
 from sanic.response import html,json
-
+from app import app
 
 
 from numpy.linalg import norm
@@ -188,7 +188,7 @@ async def fetch_user(obj_id):
             # return "here"
             j.pop('_id')
             users.append(j)
-    return jsonify(users)
+    return json(users)
 
 
 @app.route("/image_id", methods=['GET'])

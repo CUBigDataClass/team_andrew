@@ -29,7 +29,7 @@ def imageScrapping():
     # chrome_options.add_argument("--no-sandbox")
 
 
-    driver = webdriver.Chrome(executable_path="/opt/homebrew/bin/chromedriver", options=option)
+    driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", options=option)
     try:
         # Open the website
         driver.get('https://images.google.com/')

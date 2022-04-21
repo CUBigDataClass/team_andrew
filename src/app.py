@@ -1,6 +1,6 @@
 import os
 from base64 import b64encode
-from flask import Flask, flash, redirect, render_template, send_from_directory, url_for, request
+# from flask import Flask, flash, redirect, render_template, send_from_directory, url_for, request
 import templates.test_scraper as test_scraper
 from templates.test_scraper import * #to import all variables from test_scraper.py
 import templates.deleteDB as deleteDB
@@ -8,6 +8,7 @@ from sanic import Sanic,Blueprint
 from sanic.response import html,redirect,file
 from jinja2 import Template,PackageLoader,Environment
 import aiofiles
+import requests
 
 app = Sanic(__name__)
 env = Environment(loader=PackageLoader('app', 'templates/'))
@@ -24,6 +25,7 @@ async def index(request):
     #delete all data in database in homepage
     deleteDB.deleteAll()
     template = open(os.getcwd() + "/templates/upload.html")
+    print(requests.session())
     return html(template.read())
 
 #Connect hompage with complete.html, and create upload and submit features
@@ -54,7 +56,7 @@ async def upload(request):
     #calling test_scraper.py for image scraping after the user clicks on Submit button.
     var = test_scraper.imgurl()
     var2 = test_scraper.imgweb()
-
+    # word_count, entites =
     template = env.get_template('complete.html')
     content = template.render(image_name="images/temp.jpg", variable=var, variable2=var2)
     return html(content)
