@@ -28,8 +28,10 @@ def imageScrapping():
     # chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("--no-sandbox")
 
-
+    # chrome_driver_path = os.getcwd()
+    # print("Chrome driver path:", chrome_driver_path)
     driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", options=option)
+    # driver = webdriver.Chrome(executable_path=chrome_driver_path, options=option)
     try:
         # Open the website
         driver.get('https://images.google.com/')
@@ -43,7 +45,8 @@ def imageScrapping():
         # Find image input
         upload_btn = driver.find_elements(by=By.NAME, value='encoded_image')[0]
         #Using the image that user uploaded which saved in "temp.jpg" from app.py
-        upload_btn.send_keys(os.getcwd()+"/images/temp.jpg")
+        # upload_btn.send_keys(os.getcwd()+"/tmp/temp.jpg")
+        upload_btn.send_keys("/tmp/temp.jpg")
         # Click on "visually similar images"
         driver.find_elements(by=By.XPATH, value="""//*[@id="rso"]/div[2]/div/div[2]/g-section-with-header/div[1]/title-with-lhs-icon/a/div[2]/h3""")[0].click()
         time.sleep(2)
