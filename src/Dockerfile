@@ -34,14 +34,13 @@ RUN apt-get install -yqq xvfb
 # Set display port as an environment variable
 ENV DISPLAY=:99
 ENV LISTEN_PORT=8080
-COPY . /app
-WORKDIR /app
+COPY . /main
+WORKDIR /main
 
 RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 EXPOSE 5000
-
 # Define our command to be run when launching the container
 # CMD ["gunicorn", "app:app", "-b", "0.0.0.0:80", "--log-file", "-", "--access-logfile", "-", "--workers", "4", "--keep-alive", "0"]
 # CMD python3 app.py runserver 0.0.0.0:80
