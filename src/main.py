@@ -9,6 +9,16 @@ from sanic.response import html,redirect,file
 from jinja2 import Template,PackageLoader,Environment
 import aiofiles
 import requests
+import urllib
+import json
+import pymongo
+import numpy as np
+from math import sqrt
+import keras
+from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
+from keras.applications.imagenet_utils import preprocess_input
+from keras.preprocessing import image
+
 
 app = Sanic(__name__)
 env = Environment(loader=PackageLoader('main', 'templates/'))
@@ -76,6 +86,59 @@ async def upload(request,username):
 # @app.route('/upload/<image_name>')
 # async def send_image(image_name):
 #     return image_name
+def loadImage(URL):
+    with urllib.request.urlopen(URL) as url:
+        with open('temp.jpg', 'wb') as f:
+            f.write(url.read())
 
+    img_path = 'temp.jpg'
+    img = image.load_img(img_path, target_size=(256, 256,3))
+    os.remove(img_path)
+    x = image.img_to_array(img)
+    return x
+
+def extract_features(img_path, model):
+    img_array = loadImage(img_path)
+    expanded_img_array = np.expand_dims(img_array, axis=0)
+    preprocessed_img = preprocess_input(expanded_img_array)
+    features = model.predict(preprocessed_img)
+    flattened_features = features.flatten()
+    normalized_features = flattened_features / norm(flattened_features)
+    return normalized_features
+
+def cosineSim(a1,a2):
+    sum = 0
+    suma1 = 0
+    sumb1 = 0
+    for i,j in zip(a1, a2):
+        suma1 += i * i
+        sumb1 += j*j
+        sum += i*j
+    cosine_sim = sum / ((sqrt(suma1))*(sqrt(sumb1)))
+    return cosine_sim
+
+model = keras.models.load_model('mpg_model.h5')
+
+client = pymongo.MongoClient("mongodb+srv://team_andrew:Green@cluster1.jsqyd.mongodb.net/ImageSearch")
+db = client.ImageSearch
+
+# Select the collection
+collection = db.get_collection("ImageData")
+
+@app.route("/imageSearch/<username>", methods=['GET'])
+async def fetch_users(request):
+    """
+       Function to fetch the users.
+       """
+    users = []
+    user = collection.find()
+    for j in user:
+        j.pop('_id')
+        users.append(j)
+    print("REturning users:", users)
+    return json(users)
+
+
+    
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True,workers=4)

@@ -33,7 +33,7 @@ RUN apt-get install -yqq xvfb
 
 # Set display port as an environment variable
 ENV DISPLAY=:99
-ENV LISTEN_PORT=8080
+ENV LISTEN_PORT=5000
 COPY . /main
 WORKDIR /main
 
