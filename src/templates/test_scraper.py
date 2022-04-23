@@ -9,7 +9,7 @@ import time
 from selenium.webdriver.common.by import By
 
 
-def imageScrapping():
+def imageScrapping(username):
     '''
     Install selenium and chromedriver (make sure chromedriver matches your version of chrome)
     '''
@@ -43,7 +43,7 @@ def imageScrapping():
         # Find image input
         upload_btn = driver.find_elements(by=By.NAME, value='encoded_image')[0]
         #Using the image that user uploaded which saved in "temp.jpg" from app.py
-        upload_btn.send_keys(os.getcwd()+"/images/temp.jpg")
+        upload_btn.send_keys(os.getcwd()+f"/images/{username}.jpg")
         # Click on "visually similar images"
         driver.find_elements(by=By.XPATH, value="""//*[@id="rso"]/div[2]/div/div[2]/g-section-with-header/div[1]/title-with-lhs-icon/a/div[2]/h3""")[0].click()
         time.sleep(2)
@@ -101,7 +101,7 @@ def imageScrapping():
         my_client = MongoClient("mongodb+srv://team_andrew:Green@cluster1.jsqyd.mongodb.net/ImageSearch")
         db = my_client.ImageSearch #connect to "ImageSearch" Database
         collection = db.get_collection("ImageData") #connect to "ImageData" Collection
-        image_element = {"imageLink": imageURL,"description": image_description,"websiteLink":image_website, "previewImageURL:":preview_image_url} #Create Element
+        image_element = {"imageLink": imageURL,"description": image_description,"websiteLink":image_website, "previewImageURL:":preview_image_url,"user_id":username} #Create Element
         data = [image_element]
         result = collection.insert_many(data) #insert the saved data into the collection
 
@@ -118,9 +118,9 @@ def imageScrapping():
     driver.quit()
     return image_list,image_web
 
-def imgurl():
-    val, trash =imageScrapping()
+def imgurl(username):
+    val, trash =imageScrapping(username)
     return val
-def imgweb():
-    trash, val = imageScrapping()
+def imgweb(username):
+    trash, val = imageScrapping(username)
     return val

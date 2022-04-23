@@ -20,20 +20,29 @@ app.static('/images', './images')
 
 
 #Open Default homepage: upload.html
-@app.route("/")
+@app.route("/",methods=['POST','GET'])
 async def index(request):
-    #delete all data in database in homepage
-    deleteDB.deleteAll()
-    template = open(os.getcwd() + "/templates/upload.html")
-    print(requests.session())
+    if request.method == "POST":
+        email = request.form.get("email")
+        global username
+        username = email
+        template = env.get_template('upload.html')
+        content = template.render(email=email)
+        return html(content)
+    template = open(os.getcwd() + "/templates/base.html")
     return html(template.read())
+    #delete all data in database in homepage
+    # deleteDB.deleteAll()
+
+
+
 
 #Connect hompage with complete.html, and create upload and submit features
 
 
-@app.route("/upload", methods=['POST'])
+@app.route("/upload/<username>", methods=['POST','GET'])
 
-async def upload(request):
+async def upload(request,username):
     target = os.path.join(APP_ROOT, 'images/')
     if not os.path.isdir(target):
         os.mkdir(target)  # creat new folder if folder doesn't exist
@@ -48,17 +57,17 @@ async def upload(request):
         'type': upload_file.type,
     }
 
-    file_path = "/".join([target, "temp.jpg"])
+    file_path = "/".join([target, f"{username}.jpg"])
     with open(file_path, 'wb') as f:
         f.write(file_parameters['body'])
     f.close()
 
     #calling test_scraper.py for image scraping after the user clicks on Submit button.
-    var = test_scraper.imgurl()
-    var2 = test_scraper.imgweb()
-    # word_count, entites =
+    var = test_scraper.imgurl(username)
+    var2 = test_scraper.imgweb(username)
+    # word_count, entites = ner_function()
     template = env.get_template('complete.html')
-    content = template.render(image_name="images/temp.jpg", variable=var, variable2=var2)
+    content = template.render(image_name=f"/images/{username}.jpg", variable=var, variable2=var2)# word_count=word_count, entites = entites)
     return html(content)
 
 # image_name = tuple(*[files for (_, _, files) in os.walk('./images/')])
@@ -69,4 +78,4 @@ async def upload(request):
 #     return image_name
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True,workers=4)
+    app.run(host="0.0.0.0", port=8080, debug=True,workers=4)
