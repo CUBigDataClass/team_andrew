@@ -1,0 +1,15 @@
+README.txt
+setup.cfg
+setup.py
+Corpora.egg-info/PKG-INFO
+Corpora.egg-info/SOURCES.txt
+Corpora.egg-info/dependency_links.txt
+Corpora.egg-info/top_level.txt
+corpora/__init__.py
+corpora/corpus.py
+corpora.egg-info/PKG-INFO
+corpora.egg-info/SOURCES.txt
+corpora.egg-info/dependency_links.txt
+corpora.egg-info/top_level.txt
+test/__init__.py
+test/test_corpus.py

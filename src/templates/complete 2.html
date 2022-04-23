@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Similarity Application</title>
+</head>
+    <body>
+        <div class="container" align="middle">
+            <h2 style="text-align: center;">File Successfully Uploaded!</h2>
+            <img src=" {{url_for('send_image', filename=image_name)}}" width="40%" height="40%">
+        </div>
+        <div class="image">
+            <h3 style="text-align: center;">Similar Images</h3>]
+            <img src=" {{ variable[0] }}" alt="Image list" width="40%" height="40%" id="center-pills">
+            <img src=" {{ variable[1] }}" alt="Image list" width="40%" height="40%" id="center-pills">
+            <img src=" {{ variable[2] }}" alt="Image list" width="40%" height="40%" id="center-pills">
+            <img src=" {{ variable[3] }}" alt="Image list" width="40%" height="40%" id="center-pills">
+            <img src=" {{ variable[4] }}" alt="Image list" width="40%" height="40%" id="center-pills">
+        </div>
+        <a href="{{ url_for('index') }}" style="text-align: center;" id="reupload" ><input class="btn" type="button" value="Reupload Image"/></a>
+    </body>
+</html>

@@ -7,7 +7,7 @@ services:
     ports:
       - '5000:5000'
     volumes:
-      - .:/app
+      - .:/main
   mongodb:
     image: mongo
     restart: always

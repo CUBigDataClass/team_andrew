@@ -111,6 +111,8 @@ def imageScrapping():
         # print("image description:", image_description)
         # print("image URL", imageURL)
         # print("image website:", image_website)
+        # driver.close()
+        # driver.quit()
     return image_list,image_web
 
 def imgurl():
