@@ -9,10 +9,7 @@ import numpy as np
 from math import sqrt
 import urllib
 from numpy.linalg import norm
-from utils import get_mongo,model_sim,extract_features,extract_features1,cosineSim
-
-
-print("in test scraper")
+from utils import get_mongo,model_sim,extract_features,extract_features1,cosineSim,get_ner_data,text_preprocessing,get_top_words,check_top_ents
 
 def imageScrapping(username):
     '''
@@ -114,19 +111,26 @@ def imageScrapping(username):
     PATH = os.path.join(APP_ROOT, '../images/' + username + ".jpg")
     userSim = collection.find({'user_id': username}).limit(5)
     features = []
+    list_ent = []
+    list_dest = []
     for item in userSim:
+        cleaned_text = text_preprocessing(item['description'].lower())
+        list_ent.append(get_ner_data(cleaned_text))
+        list_dest.append(cleaned_text.split())
         features.append(extract_features(item['previewImageURL:'], model_sim))
+    
     userExtract = extract_features1(PATH, model_sim)
     similarity_score = []
     for i in range(5):
         similarity_score.append(cosineSim(userExtract, features[i]) * 100)
-    
+    top_words = get_top_words(list_dest)
+    top_ents = get_top_words(list_ent,3)
+    top_ents = check_top_ents(top_ents)
+    # print("The top words are :",top_words)
+    # print("The top ents are :", top_ents)
     driver.close()
     driver.quit()
     return (image_list,image_web,similarity_score)
 
 def img(username):
     return imageScrapping(username)
-
-
-
