@@ -2,7 +2,7 @@ import os
 # from flask import Flask, flash, redirect, render_template, send_from_directory, url_for, request
 import templates.test_scraper as test_scraper
 from templates.test_scraper import * #to import all variables from test_scraper.py
-import templates.deleteDB as deleteDB
+
 from sanic import Sanic,Blueprint
 from sanic.response import html,redirect,file
 from jinja2 import PackageLoader,Environment
@@ -34,7 +34,7 @@ async def index(request):
     template = open(os.getcwd() + "/templates/base.html")
     return html(template.read())
     #delete all data in database in homepage
-    # deleteDB.deleteAll()
+    
 
 
 
@@ -67,11 +67,8 @@ async def upload(request,username):
     #calling test_scraper.py for image scraping after the user clicks on Submit button.
     # var, var2, var3 = test_scraper.img(username)
     var = test_scraper.img(username)
-    # var = test_scraper.imgurl(username)
-    # var2 = test_scraper.imgweb(username)
-    # word_count, entites = ner_function()
     template = env.get_template('complete.html')
-    content = template.render(image_name=f"/images/{username}.jpg", variable=var[0], variable2=var[1], variable3=var[2])# word_count=word_count, entites = entites)
+    content = template.render(image_name=f"/images/{username}.jpg", variable=var[0], variable2=var[1], variable3=var[2], variable4=var[3], variable5=var[4])# word_count=word_count, entites = entites)
     return html(content)
 
 

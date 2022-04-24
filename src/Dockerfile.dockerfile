@@ -40,6 +40,11 @@ WORKDIR /main
 RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
+RUN python -m nltk.downloader punkt
+RUN python -m nltk.downloader stopwords
+RUN python -m nltk.downloader wordnet
+RUN python -m nltk.downloader omw-1.4
+RUN python -m spacy download en
 EXPOSE 5000
 # Define our command to be run when launching the container
 # CMD ["gunicorn", "app:app", "-b", "0.0.0.0:80", "--log-file", "-", "--access-logfile", "-", "--workers", "4", "--keep-alive", "0"]

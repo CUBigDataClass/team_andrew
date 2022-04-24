@@ -158,5 +158,5 @@ def check_top_ents(top_ents):
     elif len(top_ents)<2:
         top_ents.extend(['NFT','NFT'])
     else:
-        top_ents.append(['NFT'])
+        top_ents.append('NFT')
     return top_ents

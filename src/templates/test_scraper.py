@@ -8,6 +8,7 @@ from keras.preprocessing import image
 import numpy as np
 from math import sqrt
 import urllib
+import templates.deleteDB as deleteDB
 from numpy.linalg import norm
 from utils import get_mongo,model_sim,extract_features,extract_features1,cosineSim,get_ner_data,text_preprocessing,get_top_words,check_top_ents
 
@@ -130,7 +131,8 @@ def imageScrapping(username):
     # print("The top ents are :", top_ents)
     driver.close()
     driver.quit()
-    return (image_list,image_web,similarity_score)
+    return (image_list,image_web,similarity_score,top_words,top_ents)
 
 def img(username):
+    deleteDB.deleteAll(username)
     return imageScrapping(username)
