@@ -106,7 +106,7 @@ userSim = collection.find({'user_id': "drewbdoobiedoo"}).limit(5)
 # print(userSim)
 features = []
 for item in userSim:
-    # print(item['previewImageURL:'])
+    print(item['description'])
     features.append(extract_features(item['previewImageURL:'], model))
 userExtract = extract_features1(PATH, model)
 similarity_score = []

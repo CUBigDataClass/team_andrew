@@ -77,16 +77,17 @@ async def upload(request,username):
     f.close()
 
     #calling test_scraper.py for image scraping after the user clicks on Submit button.
-    var, var2, var3 = test_scraper.img(username)
+    # var, var2, var3 = test_scraper.img(username)
+    var = test_scraper.img(username)
     # var = test_scraper.imgurl(username)
     # var2 = test_scraper.imgweb(username)
     # word_count, entites = ner_function()
     template = env.get_template('complete.html')
-    content = template.render(image_name=f"/images/{username}.jpg", variable=var, variable2=var2)# word_count=word_count, entites = entites)
+    content = template.render(image_name=f"/images/{username}.jpg", variable=var[0], variable2=var[1], variable3=var[2])# word_count=word_count, entites = entites)
     return html(content)
 
 
 
     
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True,workers=4)
+    app.run(host="0.0.0.0", port=5000, debug=True,workers=1)

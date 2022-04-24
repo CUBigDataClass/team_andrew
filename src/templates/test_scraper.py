@@ -23,11 +23,11 @@ import pyimgur
 from PIL import Image
 
 
-client = pymongo.MongoClient("mongodb+srv://team_andrew:Green@cluster1.jsqyd.mongodb.net/ImageSearch")
-db = client.ImageSearch
+# client = pymongo.MongoClient("mongodb+srv://team_andrew:Green@cluster1.jsqyd.mongodb.net/ImageSearch")
+# db = client.ImageSearch
 
 # Select the collection
-collection = db.get_collection("ImageData")
+# collection = db.get_collection("ImageData")
 
 print("in test scraper")
 
@@ -167,14 +167,14 @@ def imageScrapping(username):
     userExtract = extract_features1(PATH, model)
     similarity_score = []
     for i in range(5):
-        # print(cosineSim(userExtract, features[i]) * 100)
+        print(cosineSim(userExtract, features[i]) * 100)
         similarity_score.append(cosineSim(userExtract, features[i]) * 100)
     
     print("RIGHT HERE HHHHHHHHHHAHAHHAHHAHHAHAHHAHHAHHAHHAHHAHAHHAHHAHHHHHHHHHHHHHHHHHHHHHHHHHHH:",similarity_score)
 
     driver.close()
     driver.quit()
-    return image_list,image_web, similarity_score
+    return (image_list,image_web,similarity_score)
 
 # def imgurl(username):
 #     val, __, __ =imageScrapping(username)
