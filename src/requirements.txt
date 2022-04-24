@@ -1,7 +1,6 @@
 click==8.0.4
 Jinja2==3.1.1
 Flask==2.1.0
-fastapi==0.45.0
 setuptools==61.2.0
 spacy==3.2.3
 pyresparser==1.0.6
@@ -19,3 +18,4 @@ tensorflow
 keras
 Pillow
 urllib3
+pyimgur
