@@ -1,23 +1,11 @@
 import os
-from base64 import b64encode
 # from flask import Flask, flash, redirect, render_template, send_from_directory, url_for, request
 import templates.test_scraper as test_scraper
 from templates.test_scraper import * #to import all variables from test_scraper.py
 import templates.deleteDB as deleteDB
 from sanic import Sanic,Blueprint
 from sanic.response import html,redirect,file
-from jinja2 import Template,PackageLoader,Environment
-import aiofiles
-import requests
-import urllib
-import json
-import pymongo
-import numpy as np
-from math import sqrt
-import keras
-from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
-from keras.applications.imagenet_utils import preprocess_input
-from keras.preprocessing import image
+from jinja2 import PackageLoader,Environment
 
 # Users/drewbeathard/google-cloud-sdk/bin/gcloud app deploy
 

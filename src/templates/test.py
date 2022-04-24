@@ -102,6 +102,7 @@ def cosineSim(a1,a2):
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 PATH = os.path.join(APP_ROOT, '../images/drewbdoobiedoo.jpg')
+# collection = 
 userSim = collection.find({'user_id': "drewbdoobiedoo"}).limit(5)
 # print(userSim)
 features = []
