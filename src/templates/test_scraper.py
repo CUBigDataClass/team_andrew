@@ -81,18 +81,28 @@ def imageScrapping(username):
         image_website_xpath = """//*[@id="islrg"]/div[1]/div[%s]/a[2]"""%(i)
         preview_image_xpath = """//*[@id="islrg"]/div[1]/div[%s]/a[1]/div[1]/img"""%(i)
         image_website_element = driver.find_elements(by=By.XPATH, value=image_website_xpath)[0]
+        print("HERE:",image_website_element.text, image_website_element.tag_name)
         preview_image_element = driver.find_elements(by=By.XPATH, value=preview_image_xpath)[0]
         preview_image_url = preview_image_element.get_attribute("src")
         driver.find_elements(by=By.XPATH, value=xpath)[0].click()
         timeStarted = time.time()
         while True:
-            image_element1 = driver.find_elements(by=By.XPATH, value="""//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img""")[0]
-            # gather image URL
-            imageURL = image_element1.get_attribute("src")
-            image_description = image_element1.get_attribute("alt")
+            # image_element1 = driver.find_elements(by=By.XPATH, value="""//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img""")
+
+            # image_element1 = FULL REZ IMAGE
+            try:
+                image_element1 = driver.find_elements(by=By.XPATH, value="""//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[3]/div/a/img""")
+                print("IMAGE 1 ELEMENT FOUND")
+            except:
+                print("IMAGE ELEMENT 1 NOT FOUND")
+                break
+            print("afadf: ",image_element1)
+            print("TEXT:", image_element1[0].text)
+            imageURL = image_element1[0].get_attribute("src")
+            image_description = image_element1[0].get_attribute("alt")
             image_website = image_website_element.get_attribute("href")
             i= i+1
-            # if the new high-res image has loaded
+            # if the new high-res image has loadeds
             if imageURL != preview_image_url:
                 break
             # if we have not loaded the high res images in x seconds, break
