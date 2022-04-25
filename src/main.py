@@ -17,6 +17,7 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 app.static('/static', './static')
 app.static('/templates', './templates')
 app.static('/images', './images')
+app.config.REQUEST_TIMEOUT = 30
 
 
 

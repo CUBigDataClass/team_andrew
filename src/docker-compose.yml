@@ -1,6 +1,7 @@
 version: '2'
 services:
   app1:
+    cpus: "6"
     build:
       context: .
       dockerfile: Dockerfile.dockerfile
@@ -8,6 +9,8 @@ services:
       - '5000:5000'
     volumes:
       - .:/main
+
+
   # mongodb:
   #   image: mongo
   #   restart: always
