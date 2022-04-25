@@ -33,14 +33,14 @@ RUN apt-get install -yqq xvfb
 
 # Set display port as an environment variable
 ENV DISPLAY=:99
-ENV LISTEN_PORT=5000
+ENV LISTEN_PORT=8080
 COPY . /main
 WORKDIR /main
 
 RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
-RUN python -m nltk.downloader punkt
+RUN python -m nltk.downloader punkt 
 RUN python -m nltk.downloader stopwords
 RUN python -m nltk.downloader wordnet
 RUN python -m nltk.downloader omw-1.4
