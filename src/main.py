@@ -68,7 +68,36 @@ async def upload(request,username):
     # var, var2, var3 = test_scraper.img(username)
     var = test_scraper.img(username)
     template = env.get_template('complete.html')
-    content = template.render(image_name=f"/images/{username}.jpg", variable=var[0], variable2=var[1], variable3=var[2], variable4=var[3], variable5=var[4])# word_count=word_count, entites = entites)
+
+    new_var = []
+    new_url = []
+    new_web = []
+    print(var[0], len(var[0]))
+    print()
+    print(var[1], len(var[1]))
+    print()
+    print(var[2], len(var[2]))
+    data = var[2]
+    print("000:", var[0])
+    
+    while data:
+        minimum = min(data)
+        print("min: ", minimum)
+        position = data.index(minimum)
+        print("pos: ", position)
+        new_url.append(var[0][position])
+        print(new_url)
+        new_web.append(var[1][position])
+        print(new_web)
+        new_var.append(minimum)
+        data.remove(minimum)
+    
+    new_var.reverse()
+    new_url.reverse()
+    new_web.reverse()
+    
+
+    content = template.render(image_name=f"/images/{username}.jpg", variable=new_url, variable2=new_web, variable3=new_var, variable4=var[3], variable5=var[4])# word_count=word_count, entites = entites)
     return html(content)
 
 

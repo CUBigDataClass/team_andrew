@@ -123,12 +123,13 @@ def imageScrapping(username):
     userExtract = extract_features1(PATH, model_sim)
     similarity_score = []
     for i in range(5):
-        similarity_score.append(cosineSim(userExtract, features[i]) * 100)
+        similarity_score.append(np.round(cosineSim(userExtract, features[i]) * 100,2))
     top_words = get_top_words(list_dest)
     top_ents = get_top_words(list_ent,3)
     top_ents = check_top_ents(top_ents)
     # print("The top words are :",top_words)
     # print("The top ents are :", top_ents)
+
     driver.close()
     driver.quit()
     return (image_list,image_web,similarity_score,top_words,top_ents)

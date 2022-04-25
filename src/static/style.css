@@ -52,7 +52,7 @@ body {
     display:inline-block;
     overflow:hidden;
     white-space:nowrap;
-    font-size: 27px;
+    font-size: 40px;
     font-family: 'Jost', sans-serif;
     color: #FFFFFF;
     padding-top: 10%;
@@ -107,7 +107,7 @@ body {
   #title{
     width: auto;
     text-align: center;
-    font-size: 50px;
+    font-size: 70px;
     font-family: 'Jost', sans-serif;
     text-shadow: 3px 3px 3px #111;
     color: #FFFFFF;
@@ -115,7 +115,7 @@ body {
   }
 
   .char2{
-    font-size: 50px;
+    font-size: 70px;
     animation: an2 1s ease-out 1 both;
     display: inline-block;
   }

@@ -12,11 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/fpz5acr.css">
-    <title>Image Similarity Application</title>
+    <title>Right Click And Save As</title>
 </head>
 <body style="background-color:#23314D;">
     <div class="header">
-        <a href="#upload" class="logo">NFTCHECK</a>
+        <a href="#upload" class="logo">Right Click And Save As</a>
     </div>
     <div class="top">
         <span id="text">Check Your Result!</span>
@@ -44,8 +44,8 @@
                     <h4 class="header2">Most Matching Image</h4>
                 </div>
                 <div class="column4">
-                    <div id="pie-mold" class="yummy-pie" data-percentage="80" data-baking-time="1200"></div>
-                    <h4 class="header2">Highest Matching %: 100%</h4>
+                    <div id="pie-mold" class="yummy-pie" data-percentage="{{ variable3[0] }}" data-baking-time="1200"></div>
+                    <h4 class="header2">Highest Matching %: {{ variable3[0] }}</h4>
                 </div>
             </div>
             <a href=" {{ variable[0] }}" type="button" class="btnClick2" >View</a>
@@ -72,11 +72,10 @@
     <h3 style="text-align: center;">More Images</h3>
     <div class="botcol">
         <div className="container">
-            <!-- <img src="temp.jpg" alt="Avatar" id="viewBox"/> -->
             <img src=" {{ variable[1] }}" alt="Avatar" id="viewBox">
             <div class="stats">
-                <p>lorem impsen</p>
-                <!-- <div id="pie-mold" class="yummy-pie" data-percentage="70" data-baking-time="1200"></div> -->
+                <p style="font-size: 30px; color: #535559;">{{ variable3[1] }} %</p>
+                <!-- <div id="pie-mold" class="yummy-pie" data-percentage="{{ variable3[1] }}" data-baking-time="1200"></div> -->
                 <a href=" {{ variable[1] }}" type="button" class="btnClick2">View</a>
                 <a href=" {{ variable2[1] }}" type="button" class="btnClick3" >Source</a>
             </div>
@@ -87,7 +86,7 @@
             <!-- <img src="temp.jpg" alt="Avatar" id="viewBox2"/> -->
             <img src=" {{ variable[2] }}" alt="Avatar" id="viewBox2">
             <div class="stats2">
-                <p>lorem impsen</p>
+                <p style="font-size: 30px;color: #535559;">{{ variable3[2] }} %</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="45" data-baking-time="1200"></div> -->
                 <a href=" {{ variable[2] }}" type="button" class="btnClick2" >View</a>
                 <a href=" {{ variable2[2] }}" type="button" class="btnClick3" >Source</a>
@@ -99,7 +98,7 @@
             <!-- <img src="temp.jpg" alt="Avatar" id="viewBox"/> -->
             <img src=" {{ variable[3] }}" alt="Avatar" id="viewBox">
             <div class="stats">
-                <p>lorem impsen</p>
+                <p style="font-size: 30px;color: #535559;">{{ variable3[3] }} %</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="65" data-baking-time="1200"></div> -->
                 <a href=" {{ variable[3] }}" type="button" class="btnClick2" >View</a>
                 <a href=" {{ variable2[3] }}" type="button" class="btnClick3" >Source</a>
@@ -111,7 +110,7 @@
             <!-- <img src="temp.jpg" alt="Avatar" id="viewBox2"/> -->
             <img src=" {{ variable[4] }}" alt="Avatar" id="viewBox2">
             <div class="stats2">
-                <p>lorem impsen</p>
+                <p style="font-size: 30px;color: #535559;">{{ variable3[4] }} %</p>
                 <!-- <div id="pie-mold" class="yummy-pie" data-percentage="76" data-baking-time="1200"></div> -->
                 <a href=" {{ variable[4] }}" type="button" class="btnClick2" >View</a>
                 <a href=" {{ variable2[4] }}" type="button" class="btnClick3" >Source</a>
@@ -200,10 +199,9 @@ $(stuffing).animate({
     'stroke-dashoffset': totalLength*(100-options.percentage)/100
 }, options.duration );
 }  // END: bakePie()
+
 makePie('#pie-mold');
 setTimeout(function(){ bakePie('#pie-mold'); }, 2000);
-setTimeout(function(){ bakePie('#pie-mold', {percentage:45}); }, 6000);
-setTimeout(function(){ bakePie('#pie-mold', {percentage:100}); }, 10000);
         </script>
 </body>
 </html>
