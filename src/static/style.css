@@ -52,7 +52,7 @@ body {
     display:inline-block;
     overflow:hidden;
     white-space:nowrap;
-    font-size: 40px;
+    font-size: 38px;
     font-family: 'Jost', sans-serif;
     color: #FFFFFF;
     padding-top: 10%;
@@ -193,7 +193,7 @@ body {
     box-shadow: 7px 7px 6px #111;
 }
 #uploadHeader {
-  font-size: 32px;
+  font-size: 50px;
   font-family: 'Jost', sans-serif;
   color: #535559;
   margin-top: 10%;
