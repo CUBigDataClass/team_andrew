@@ -3,6 +3,7 @@
 Right Click Save As is an NFT minting verification web application that allows users to upload NFT/Image and runs a reverse Google image search.
 
 
+
 ﻿Requirements for Installing Project:
 
 
