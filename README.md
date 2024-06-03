@@ -6,7 +6,7 @@ Right Click Save As is an NFT minting verification web application that allows u
 ﻿Requirements for Installing Project:
 
 
-*For windows users.
+*For Windows users.
 *Install Python3 and pip before installing these.
 
 MongoDB:
