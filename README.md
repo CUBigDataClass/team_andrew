@@ -12,8 +12,8 @@ Right Click Save As is an NFT minting verification web application where user ca
 ﻿Requirements for Installing Project:
 
 
-*For Windows users.
-*Install Python3 and pip before installing these.
+* For Windows users.
+* Install Python3 and pip before installing these.
 
 MongoDB:
 1. Install MongoDB Compass (https://www.mongodb.com/products/compass)
