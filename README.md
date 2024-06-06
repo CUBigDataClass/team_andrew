@@ -1,7 +1,12 @@
 # Right Click Save As
 
-Right Click Save As is an NFT minting verification web application that allows users to upload NFT/Image and runs a reverse Google image search.
+Right Click Save As is an NFT minting verification web application where user can check if their NFT/image is a derivative of another similar art or is it unique before investing
 
+*Our app allows users to upload NFT/image and runs a reverse Google image search
+*Gets Top 5 image matches -> runs image similarity and NER machine learning models
+  -Image similarity returns percent % matching similarity between original image upload and top 5 images
+  -NER returns top 5 associated tags and top 3 entities for image matches
+  
 
 
 ﻿Requirements for Installing Project:
