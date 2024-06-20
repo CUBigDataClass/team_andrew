@@ -7,11 +7,11 @@ Right Click Save As is an NFT minting verification web application where user ca
   - Image similarity returns percent % matching similarity between original image upload and top 5 images
   - NER returns top 5 associated tags and top 3 entities for image matches
   
-Architecture:
+<h4>Architecture:</h4>
 ![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/6887e861-88be-46af-acdc-0624af18adec)
 ![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/64ed6f7e-fe38-4647-97ad-80c31434dff8)
 
-Demo Screenshot:
+<h4>Demo Screenshot:</h4>
 ![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/20642059-dbd8-4d25-9249-a2d8b8ba3fef)
 
 
