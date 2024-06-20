@@ -1,13 +1,26 @@
 # Right Click Save As
 
-Right Click Save As is an NFT minting verification web application that allows users to upload NFT/Image and runs a reverse Google image search.
+Right Click Save As is an NFT minting verification web application where user can check if their NFT/image is a derivative of another similar art or is it unique before investing
+
+* Our app allows users to upload NFT/image and runs a reverse Google image search
+* Gets Top 5 image matches -> runs image similarity and NER machine learning models
+  - Image similarity returns percent % matching similarity between original image upload and top 5 images
+  - NER returns top 5 associated tags and top 3 entities for image matches
+  
+<h4>Architecture:</h4>
+
+![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/6887e861-88be-46af-acdc-0624af18adec)
+![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/64ed6f7e-fe38-4647-97ad-80c31434dff8)
+
+<h4>Demo Screenshot:</h4>
+
+![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/20642059-dbd8-4d25-9249-a2d8b8ba3fef)
 
 
 ﻿Requirements for Installing Project:
 
-
-*For windows users.
-*Install Python3 and pip before installing these.
+* For Windows users.
+* Install Python3 and pip before installing these.
 
 MongoDB:
 1. Install MongoDB Compass (https://www.mongodb.com/products/compass)
