@@ -8,12 +8,14 @@ Right Click Save As is an NFT minting verification web application where user ca
   - NER returns top 5 associated tags and top 3 entities for image matches
   
 Architecture:
+![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/6887e861-88be-46af-acdc-0624af18adec)
 ![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/64ed6f7e-fe38-4647-97ad-80c31434dff8)
-![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/64ed6f7e-fe38-4647-97ad-80c31434dff8)
+
+Demo Screenshot:
+![image](https://github.com/yugo9081/Right-Click-Save-As/assets/54964332/20642059-dbd8-4d25-9249-a2d8b8ba3fef)
 
 
 ﻿Requirements for Installing Project:
-
 
 * For Windows users.
 * Install Python3 and pip before installing these.
